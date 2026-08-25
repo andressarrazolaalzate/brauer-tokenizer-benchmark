@@ -1,0 +1,26 @@
+name: Full manuscript benchmark
+
+on:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install benchmark dependencies
+        run: python -m pip install '.[benchmark]'
+      - name: Reproduce Tables 2 and 3
+        run: brauer-tokenizer-benchmark --output-dir results --verify-manuscript
+      - name: Reproduce controlled Table 4
+        run: python scripts/reproduce_table4.py
+      - name: Upload numerical outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-benchmark-results
+          path: results/

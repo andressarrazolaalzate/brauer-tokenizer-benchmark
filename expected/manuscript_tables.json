@@ -1,0 +1,25 @@
+{
+  "note": "Regression targets transcribed from the final 15-page manuscript. Tables 2 and 3 require the pinned Hugging Face tokenizer snapshots to reproduce from raw text; Table 4 is fully offline.",
+  "table2": {
+    "BERT": [23.436, 21.436, 68.308, 3.142, 179.488, 6.000],
+    "RoBERTa": [22.880, 20.880, 66.640, 3.118, 175.040, 6.000],
+    "Mistral-7B": [24.366, 23.366, 71.098, 3.183, 186.928, 3.000],
+    "GPT-2": [20.880, 20.880, 60.640, 3.025, 159.040, 0.000],
+    "Qwen2.5": [21.328, 21.328, 61.984, 3.050, 162.624, 0.000]
+  },
+  "table3_entropy_nats": {
+    "0": {"BERT": 3.147, "RoBERTa": 3.123, "Mistral-7B": 3.188, "GPT-2": 3.030, "Qwen2.5": 3.055},
+    "1": {"BERT": 3.142, "RoBERTa": 3.118, "Mistral-7B": 3.183, "GPT-2": 3.025, "Qwen2.5": 3.050},
+    "2": {"BERT": 3.138, "RoBERTa": 3.114, "Mistral-7B": 3.179, "GPT-2": 3.020, "Qwen2.5": 3.046},
+    "3": {"BERT": 3.135, "RoBERTa": 3.111, "Mistral-7B": 3.176, "GPT-2": 3.017, "Qwen2.5": 3.042}
+  },
+  "table3_cost_growth_percent": {
+    "2": {"BERT": 62.76, "RoBERTa": 62.67, "Mistral-7B": 62.92, "GPT-2": 62.27, "Qwen2.5": 62.36},
+    "3": {"BERT": 122.60, "RoBERTa": 122.33, "Mistral-7B": 123.02, "GPT-2": 121.24, "Qwen2.5": 121.50}
+  },
+  "table4": {
+    "1": [67, 3.1303, 2.8820, -0.2483, 176, 284, 1.61, 24],
+    "2": [109, 3.1264, 2.8855, -0.2409, 462, 732, 1.58, 24],
+    "3": [149, 3.1231, 2.8828, -0.2403, 884, 1388, 1.57, 24]
+  }
+}
