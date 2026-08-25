@@ -11,7 +11,7 @@ The repository deliberately does **not** describe the occurrence baseline as a t
 
 ## What is reproduced
 
-- the fixed 500-sentence English corpus generated with seed `20260823`;
+- the fixed 500-sentence English corpus generated deterministically with seed `20260823`;
 - five Hugging Face tokenizer families: BERT, RoBERTa, GPT-2, Qwen2.5, and Mistral-7B;
   The repository uses the current canonical Hugging Face repository names for the three historical aliases in the paper: `bert-base-uncased` -> `google-bert/bert-base-uncased`, `roberta-base` -> `FacebookAI/roberta-base`, and `gpt2` -> `openai-community/gpt2`. The tokenizer assets are unchanged aliases of the same repositories.
 - radii `r = 0, 1, 2, 3` for `500 x 5 x 4 = 10,000` occurrence-baseline evaluations;
@@ -27,10 +27,11 @@ The 10,000 occurrence evaluations are **not 10,000 independent structural patter
 ```text
 src/brauer_tokenizer/
     core.py          mathematical definitions, explicit reference objects, Propositions 8-9 checks
-    corpus.py        deterministic 500-sentence corpus
+    corpus.py        deterministic 500-sentence corpus generator
     tokenizers.py    pinned Hugging Face tokenizer snapshots
     benchmark.py     full benchmark and manuscript-table verification
 scripts/
+    materialize_corpus.py
     reproduce_table4.py
     verify_randomized.py
     verify_repository.py
@@ -38,8 +39,6 @@ tests/
     test_core.py
     test_corpus_and_manuscript.py
     test_tokenizer_config.py
-data/
-    ciarp_english_sentences_500.txt
 expected/
     manuscript_tables.json
 notebooks/
@@ -101,13 +100,19 @@ The primary benchmark retains the special tokens added by each tokenizer. For th
 
 ## Corpus reproducibility
 
-The corpus is regenerated from seed `20260823` and sorted deterministically. Its UTF-8 text file has SHA-256:
+The corpus is regenerated from seed `20260823` and sorted deterministically. The exact UTF-8 serialization used by the benchmark has SHA-256:
 
 ```text
 6888d24246c8b121b6492b9b3132d49564c50149a86a4547c2a2d79fc5d7b9fb
 ```
 
-The distributed file is compared against a fresh regeneration rather than against a second copy produced in the same branch of execution.
+To materialize the 500 sentences as a plain-text file, run:
+
+```bash
+python scripts/materialize_corpus.py
+```
+
+The benchmark does not rely on a mutable external corpus download: it regenerates the fixed sentence set directly from the published seed and templates, then checks its digest in the test suite.
 
 ## Cost-aware interpretation
 
