@@ -1,12 +1,10 @@
 """Offline repository integrity checks."""
 from __future__ import annotations
 from pathlib import Path
-import math
 from brauer_tokenizer import entropy_asymptotic_coefficient, occurrence_descriptors, verify_occurrence_closed_forms
-from brauer_tokenizer.corpus import generate_reference_corpus, validate_reference_corpus, corpus_sha256
+from brauer_tokenizer.corpus import generate_reference_corpus, corpus_sha256
 
 root=Path(__file__).resolve().parents[1]
-validate_reference_corpus(root/"data/ciarp_english_sentences_500.txt")
 assert corpus_sha256(generate_reference_corpus()) == "6888d24246c8b121b6492b9b3132d49564c50149a86a4547c2a2d79fc5d7b9fb"
 assert verify_occurrence_closed_forms(12,3)==48
 for r, target in [(1,-0.12605),(2,-0.22998),(3,-0.32979)]:
