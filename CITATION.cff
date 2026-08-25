@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the accompanying paper."
+title: "Brauer Tokenizer Benchmark"
+type: software
+version: 1.1.0
+date-released: 2026-08-25
+authors:
+  - family-names: Sarrazola-Alzate
+    given-names: Andrés
+    orcid: "https://orcid.org/0000-0002-2989-9342"
+    email: andres.sarrazola@eia.edu.co
+    affiliation: Universidad EIA
+  - family-names: Moreno Cañadas
+    given-names: Agustín
+    orcid: "https://orcid.org/0000-0001-6812-5131"
+    email: amorenoca@unal.edu.co
+    affiliation: Universidad Nacional de Colombia
+license: MIT
+abstract: "Reference implementation and reproducibility package for occurrence-indexed and type-collapsed Brauer descriptors in LLM tokenization."
+preferred-citation:
+  type: conference-paper
+  title: "Brauer Entropy for Cost-Aware Pattern Recognition in LLM Tokenization"
+  year: 2026
+  authors:
+    - family-names: Sarrazola-Alzate
+      given-names: Andrés
+      orcid: "https://orcid.org/0000-0002-2989-9342"
+    - family-names: Moreno Cañadas
+      given-names: Agustín
+      orcid: "https://orcid.org/0000-0001-6812-5131"

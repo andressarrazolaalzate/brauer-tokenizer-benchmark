@@ -1,0 +1,5 @@
+transformers==4.55.4
+tokenizers==0.21.4
+sentencepiece==0.2.1
+protobuf==6.32.0
+tqdm==4.67.1

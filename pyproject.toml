@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brauer-tokenizer-benchmark"
+version = "1.1.0"
+description = "Reproducible Brauer entropy and cost descriptors for LLM tokenization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Andrés Sarrazola-Alzate", email = "andres.sarrazola@eia.edu.co"},
+  {name = "Agustín Moreno Cañadas", email = "amorenoca@unal.edu.co"}
+]
+keywords = ["Brauer configuration", "tokenization", "entropy", "LLM", "pattern recognition"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.optional-dependencies]
+benchmark = [
+  "transformers==4.55.4",
+  "tokenizers==0.21.4",
+  "sentencepiece==0.2.1",
+  "protobuf==6.32.0",
+  "tqdm==4.67.1"
+]
+
+[project.scripts]
+brauer-tokenizer-benchmark = "brauer_tokenizer.benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
