@@ -9,5 +9,6 @@ venv/
 build/
 dist/
 results/
+data/ciarp_english_sentences_500.txt
 .ipynb_checkpoints/
 .DS_Store
